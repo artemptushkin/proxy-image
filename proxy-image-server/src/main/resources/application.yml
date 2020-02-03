@@ -1,3 +1,10 @@
 logging:
   level:
     org: debug
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true
