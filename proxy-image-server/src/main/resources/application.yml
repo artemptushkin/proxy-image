@@ -8,3 +8,15 @@ spring:
       httpclient:
         ssl:
           useInsecureTrustManager: true
+      default-filters:
+        - ProxyForward
+      routes:
+        - id: modify_image_router
+          uri: no://op
+          predicates:
+            - Path=/**
+          filters:
+            - name: ModifyImageSize
+              args:
+                responseHeaderName: Content-Type
+                regexp: image/.*
