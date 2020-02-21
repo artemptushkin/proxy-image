@@ -2,12 +2,14 @@ logging:
   level:
     org: debug
 
+server:
+  port: 8080
+
+proxy.image.enabled: true
+
 spring:
   cloud:
     gateway:
-      httpclient:
-        ssl:
-          useInsecureTrustManager: true
       default-filters:
         - ProxyForward
       routes:

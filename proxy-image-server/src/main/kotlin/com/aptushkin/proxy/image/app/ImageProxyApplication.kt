@@ -1,4 +1,4 @@
-package com.aptushkin.image.proxy
+package com.aptushkin.proxy.image.app
 
 import org.springframework.boot.Banner
 import org.springframework.boot.autoconfigure.SpringBootApplication

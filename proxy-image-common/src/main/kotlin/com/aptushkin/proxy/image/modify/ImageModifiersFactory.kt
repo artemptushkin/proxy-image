@@ -1,4 +1,4 @@
-package com.aptushkin.image.proxy.modify
+package com.aptushkin.proxy.image.modify
 
 import org.springframework.stereotype.Component
 import org.springframework.web.server.ServerWebExchange

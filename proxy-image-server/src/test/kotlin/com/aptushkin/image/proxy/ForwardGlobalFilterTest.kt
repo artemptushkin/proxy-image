@@ -1,4 +1,4 @@
-package com.aptushkin.image.proxy
+package com.aptushkin.proxy.image
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

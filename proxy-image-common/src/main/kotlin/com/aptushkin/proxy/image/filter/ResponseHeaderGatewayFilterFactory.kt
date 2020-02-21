@@ -1,4 +1,4 @@
-package com.aptushkin.image.proxy.filter
+package com.aptushkin.proxy.image.filter
 
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.NettyWriteResponseFilter

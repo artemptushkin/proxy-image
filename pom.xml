@@ -6,6 +6,7 @@
 	<modules>
 		<module>proxy-image-server</module>
 		<module>proxy-image-common</module>
+		<module>proxy-image-starter</module>
 	</modules>
 
 	<parent>

@@ -24,6 +24,14 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- SELF -->
+        <dependency>
+            <groupId>com.aptushkin.proxy.image</groupId>
+            <artifactId>proxy-image-starter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Kotlin -->
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
@@ -40,15 +48,11 @@
             <groupId>org.jetbrains.kotlinx</groupId>
             <artifactId>kotlinx-coroutines-reactor</artifactId>
         </dependency>
+        <!-- Kotlin -->
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.imgscalr</groupId>
-            <artifactId>imgscalr-lib</artifactId>
-            <version>4.2</version>
         </dependency>
 
         <dependency>

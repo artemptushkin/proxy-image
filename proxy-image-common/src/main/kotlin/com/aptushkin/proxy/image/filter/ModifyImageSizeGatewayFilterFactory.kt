@@ -1,6 +1,6 @@
-package com.aptushkin.image.proxy.filter
+package com.aptushkin.proxy.image.filter
 
-import com.aptushkin.image.proxy.modify.ImageModifiersFactory
+import com.aptushkin.proxy.image.modify.ImageModifiersFactory
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory
 import org.springframework.cloud.gateway.filter.factory.rewrite.ModifyResponseBodyGatewayFilterFactory

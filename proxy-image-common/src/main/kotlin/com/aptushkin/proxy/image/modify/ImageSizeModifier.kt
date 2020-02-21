@@ -1,4 +1,4 @@
-package com.aptushkin.image.proxy.modify
+package com.aptushkin.proxy.image.modify
 
 import org.imgscalr.Scalr
 import java.awt.image.BufferedImage

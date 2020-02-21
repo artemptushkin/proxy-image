@@ -1,4 +1,4 @@
-package com.aptushkin.image.proxy.modify
+package com.aptushkin.proxy.image.modify
 
 interface ImageModifier {
     fun modify(byteArray: ByteArray): ByteArray
