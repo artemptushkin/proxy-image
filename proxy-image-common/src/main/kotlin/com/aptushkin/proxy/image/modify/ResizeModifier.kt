@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import javax.imageio.ImageIO
 
-class ImageSizeModifier(private val width: Int, private val height: Int, private val format: String) : ImageModifier {
+class ResizeModifier(private val width: Int, private val height: Int, private val format: String) : ImageModifier {
 
     override fun modify(byteArray: ByteArray): ByteArray {
         val inputImage = ByteArrayInputStream(byteArray).use {
