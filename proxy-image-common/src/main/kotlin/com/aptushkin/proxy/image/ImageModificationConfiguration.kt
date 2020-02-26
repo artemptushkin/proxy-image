@@ -14,6 +14,6 @@ class ImageModificationConfiguration {
 
     @Component
     class ModifyImageSizeGatewayFilterFactory(
-            decoratedFactory: ModifyResponseBodyGatewayFilterFactory, imageModifierFactory: ImageModifierFactory<ResizeImageConfig>)
-        : ModifyImageGatewayFilterFactory<ResizeImageConfig>(decoratedFactory, imageModifierFactory, ResizeImageConfig::class.java)
+            decoratedFactory: ModifyResponseBodyGatewayFilterFactory, resizeModifierFactory: ImageModifierFactory<ResizeImageConfig>)
+        : ModifyImageGatewayFilterFactory<ResizeImageConfig>(decoratedFactory, resizeModifierFactory, ResizeImageConfig::class.java)
 }
