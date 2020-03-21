@@ -7,6 +7,7 @@ import com.aptushkin.proxy.image.modify.scalr.toScalrMode
 import org.imgscalr.Scalr
 import org.springframework.core.convert.converter.Converter
 import org.springframework.web.server.ServerWebExchange
+import java.lang.IllegalStateException
 
 class ResizeRequestConverter(private val config: ResizeImageConfig) : Converter<ServerWebExchange, ResizeRequest> {
 
@@ -18,14 +19,15 @@ class ResizeRequestConverter(private val config: ResizeImageConfig) : Converter<
             params.getFirst("format")
         } else {
             if (uri.contains(".")) {
-                uri.substring(uri.lastIndexOf(".") + 1, uri.lastIndexOf("?"))
+                if (uri.contains("?")) uri.substring(uri.lastIndexOf(".") + 1, uri.lastIndexOf("?"))
+                else uri.substring(uri.lastIndexOf(".") + 1, uri.length)
             } else config.defaultFormat
-        } ?: throw IllegalAccessException("Either format must exists at the request params or a the application properties as defaultFormat")
+        } ?: throw IllegalStateException("Either format must exists at the request params or a the application properties as defaultFormat")
 
         val width: Int? = params["width"]?.firstOrNull()?.toInt() ?: config.defaultWidth
         val height: Int? = params["height"]?.firstOrNull()?.toInt() ?: config.defaultHeight
 
-        if (width == null || height == null) throw IllegalAccessException("Either width & height must exist at the request params or at " +
+        if (width == null || height == null) throw IllegalStateException("Either width & height must exist at the request params or at " +
                 "the application properties as defaultWidth / defaultHeight")
 
         val mode: Scalr.Mode? = params["mode"]?.firstOrNull()?.toScalrMode() ?: config.defaultMode
