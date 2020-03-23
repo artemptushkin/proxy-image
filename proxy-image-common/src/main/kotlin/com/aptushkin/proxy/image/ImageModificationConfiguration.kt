@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component
 class ImageModificationConfiguration {
 
     @Component
-    class ModifyImageSizeGatewayFilterFactory(
+    class ResizeImageGatewayFilterFactory(
             decoratedFactory: ModifyResponseBodyGatewayFilterFactory, resizeModifierFactory: ImageModifierFactory<ResizeImageConfig>)
         : ModifyImageGatewayFilterFactory<ResizeImageConfig>(decoratedFactory, resizeModifierFactory, ResizeImageConfig::class.java)
 

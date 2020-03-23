@@ -16,7 +16,7 @@ spring:
           predicates:
             - Path=/**
           filters:
-            #- name: ModifyImageSize
+            #- name: ResizeImage
             #  args:
             #    responseHeaderName: Content-Type
             #    regexp: image/.*
