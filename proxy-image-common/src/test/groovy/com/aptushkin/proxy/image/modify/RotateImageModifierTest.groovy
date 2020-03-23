@@ -1,6 +1,5 @@
 package com.aptushkin.proxy.image.modify
 
-
 import com.aptushkin.proxy.image.modify.domain.RotateImageRequest
 import org.imgscalr.Scalr
 import org.junit.jupiter.api.BeforeEach
@@ -12,7 +11,7 @@ import java.util.stream.Stream
 
 import static com.aptushkin.proxy.image.ImageTestUtils.compareImages
 import static com.aptushkin.proxy.image.ImageTestUtils.getImage
-import static org.junit.Assert.assertTrue
+import static org.junit.jupiter.api.Assertions.assertTrue
 import static org.junit.jupiter.params.provider.Arguments.arguments
 
 class RotateImageModifierTest {

@@ -2,7 +2,6 @@ package com.aptushkin.proxy.image.modify.conversion
 
 import com.aptushkin.proxy.image.modify.config.ResizeImageConfig
 import org.imgscalr.Scalr
-import org.junit.Rule
 import org.junit.jupiter.api.Test
 import org.springframework.http.server.reactive.ServerHttpRequest
 import org.springframework.util.LinkedMultiValueMap
@@ -15,9 +14,6 @@ import static org.mockito.Mockito.when
 
 class ResizeRequestConverterTest {
     ResizeRequestConverter converter
-
-    @Rule
-    public final IllegalStateException exception = new IllegalStateException()
 
     @Test
     void "should throw exception on width without height"() {
