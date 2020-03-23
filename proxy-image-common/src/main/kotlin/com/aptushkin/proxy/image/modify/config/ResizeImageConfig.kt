@@ -7,7 +7,6 @@ import org.springframework.validation.annotation.Validated
 class ResizeImageConfig: DefaultImageConfig() {
     var defaultWidth: Int? = null
     var defaultHeight: Int? = null
-    var defaultFormat: String? = null
 
     var defaultMode: Scalr.Mode? = null
     var defaultMethod: Scalr.Method? = null

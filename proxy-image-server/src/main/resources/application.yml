@@ -16,7 +16,15 @@ spring:
           predicates:
             - Path=/**
           filters:
-            - name: CropImage
+            #- name: ModifyImageSize
+            #  args:
+            #    responseHeaderName: Content-Type
+            #    regexp: image/.*
+            #- name: CropImage
+            #  args:
+            #    responseHeaderName: Content-Type
+            #    regexp: image/.*
+            - name: RotateImage
               args:
                 responseHeaderName: Content-Type
                 regexp: image/.*

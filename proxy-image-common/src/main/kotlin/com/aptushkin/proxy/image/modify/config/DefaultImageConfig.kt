@@ -11,4 +11,6 @@ class DefaultImageConfig: ModifyResponseBodyGatewayFilterFactory.Config() {
     @NotEmpty
     lateinit var regexp: String
     var onNotExistedHeader = false
+
+    var defaultFormat: String? = null
 }

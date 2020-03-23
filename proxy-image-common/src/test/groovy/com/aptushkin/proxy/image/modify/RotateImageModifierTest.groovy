@@ -1,7 +1,8 @@
 package com.aptushkin.proxy.image.modify
 
 
-import com.aptushkin.proxy.image.modify.domain.CropRequest
+import com.aptushkin.proxy.image.modify.domain.RotateImageRequest
+import org.imgscalr.Scalr
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -14,7 +15,7 @@ import static com.aptushkin.proxy.image.ImageTestUtils.getImage
 import static org.junit.Assert.assertTrue
 import static org.junit.jupiter.params.provider.Arguments.arguments
 
-class CropImageModifierTest {
+class RotateImageModifierTest {
 
     ByteArrayModifier imageModifier
 
@@ -27,17 +28,16 @@ class CropImageModifierTest {
 
     static Stream<Arguments> input() {
         return Stream.of(
-                arguments(new CropRequest(600, 500, "png", null, null), "crop-600x500.png"),
-                arguments(new CropRequest(600, 500, "jpg", null, null), "crop-600x500.jpg"),
-                arguments(new CropRequest(600, 500, "png", 400, 100), "crop-x400y100w600h500.png")
+                arguments(new RotateImageRequest(Scalr.Rotation.CW_180, "png"), "rotate-cw_180.png"),
+                arguments(new RotateImageRequest(Scalr.Rotation.CW_270, "jpg"), "rotate-cw_270.jpg")
         )
     }
 
     @ParameterizedTest
     @MethodSource("input")
-    void "should crop image by width and height"(def cropRequest, def expectedFileName) {
+    void "should resize image by width and height"(def rotateRequest, def expectedFileName) {
         //setup
-        imageModifier = new CropImageModifier(cropRequest)
+        imageModifier = new RotateImageModifier(rotateRequest)
         def expected = getImage(expectedFileName)
 
         //then
