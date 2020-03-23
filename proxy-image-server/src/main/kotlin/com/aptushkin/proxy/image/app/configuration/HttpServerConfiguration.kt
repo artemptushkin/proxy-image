@@ -10,6 +10,9 @@ import org.springframework.http.server.reactive.HttpHandler
 import javax.annotation.PostConstruct
 import javax.annotation.PreDestroy
 
+/**
+ * Class is needed to configure default server as HTTPS
+ */
 @Configuration
 @ConditionalOnProperty(name = ["server.http.port"], matchIfMissing = false)
 class HttpServerConfiguration {
