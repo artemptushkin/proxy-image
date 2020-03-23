@@ -1,3 +1,163 @@
+### How to use inside your spring-cloud-gateway server
+
+Fetch dependency:
+<br>Maven:
+```xml
+<dependency>
+    <groupId>com.aptushkin.proxy.image</groupId>
+    <artifactId>proxy-image-starter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+Gradle:
+```groovy
+compile group: 'com.aptushkin.proxy.image', name: 'proxy-image-starter', version: '0.0.1-SNAPSHOT'
+```
+
+Use spring properties to activate customize image modifications: 
+```yaml
+proxy.image:
+    enalbed: true
+```
+
+#### Customization of gateway filters properties
+
+1. Enable default filter to proxy every request to the target destination
+    ```
+    spring:
+      cloud:
+        gateway:
+          default-filters:
+            - ProxyForward
+    ```
+2. Customize routing properties to specify image modification filters
+    ```yaml
+     spring.cloud.gateway.routes:
+       - id: modify_image_router
+       uri: no://op
+        predicates:
+         - Path=/**
+    ```
+
+3. Specify required filters
+    ```yaml
+    spring.cloud.gateway:
+     filters:
+       name: ModifyImageSize
+       args:
+         responseHeaderName: Content-Type
+         regexp: image/.*
+    ```
+   
+### Available image filters
+
+#### Resize filter
+
+Spring properties name: ResizeImage
+
+**Default properties:**
+
+| Property           	| Required 	| Description                                                                                                            	|
+|:--------------------:	|:----------:	|------------------------------------------------------------------------------------------------------------------------	|
+| defaultWidth       	| N        	| Default width value of resize method                                                                                   	|
+| defaultHeight      	| N        	| Default height value of resize method                                                                                  	|
+| defaultMode        	| N        	| Default mode value of resize method; See http://javadox.com/org.imgscalr/imgscalr-lib/4.2/org/imgscalr/Scalr.Mode.html 	|
+| defaultMethod      	| N        	| Default method value of resize method; http://javadox.com/org.imgscalr/imgscalr-lib/4.2/org/imgscalr/Scalr.Method.html 	|
+| responseHeaderName 	| Y        	| The header name of proxied server response                                                                             	|
+| regexp             	| Y        	| Regex to verify response header value. If matched then current filter should be applied                                	|
+| onNotExistedHeader 	| N        	| If true, current filter will be applied; otherwise not                                                                 	|
+| defaultFormat      	| N        	| default file format for image modification                                                                             	|                                                                   |
+
+**Query parameters:**
+
+| Property 	| Description                                                                                                      	|
+|----------	|------------------------------------------------------------------------------------------------------------------	|
+| width    	| Width value of target image                                                                                      	|
+| height   	| Height value of target image                                                                                     	|
+| format   	| File format for image modification                                                                               	|
+| mode     	| Mode value of resize method; See http://javadox.com/org.imgscalr/imgscalr-lib/4.2/org/imgscalr/Scalr.Mode.html   	|
+| method   	| Method value of resize method; See http://javadox.com/org.imgscalr/imgscalr-lib/4.2/org/imgscalr/Scalr.Mode.html 	|
+
+Curl example:
+```
+curl --location --request GET 'http://github.githubassets.com/images/modules/open_graph/github-octocat.png?width=100&height=300&format=jpg'
+```
+
+<br>
+
+#### Crop filter
+
+Spring properties name: CropImage
+
+**Default properties:**
+
+| Property           	| Required 	| Description                                                                             	|
+|--------------------	|----------	|-----------------------------------------------------------------------------------------	|
+| defaultWidth       	| N        	| Default width value of crop method                                                    	|
+| defaultHeight      	| N        	| Default height value of crop method                                                   	|
+| defaultX           	| N        	| Default X value of crop method; Used to crop the proxy image from the top-left corner   	|
+| defaultY           	| N        	| Default Y value of crop method; Used to crop the proxy image from the top-left corner   	|
+| responseHeaderName 	| Y        	| The header name of proxied server response                                              	|
+| regexp             	| Y        	| Regex to verify response header value. If matched then current filter should be applied 	|
+| onNotExistedHeader 	| N        	| If true, current filter will be applied; otherwise not                                  	|
+| defaultFormat      	| N        	| default file format for image modification                                              	|
+
+**Query parameters:**
+
+| Property 	| Description                                                                   	|
+|----------	|-------------------------------------------------------------------------------	|
+| width    	| Width value of target image                                                   	|
+| height   	| Height value of target image                                                  	|
+| format   	| File format for image modification                                            	|
+| x        	| X value of crop method; Used to crop the proxy image from the top-left corner 	|
+| y        	| Y value of crop method; Used to crop the proxy image from the top-left corner 	|
+
+Curl example:
+```
+curl --location --request GET 'http://github.githubassets.com/images/modules/open_graph/github-octocat.png?width=600&height=500&x=400&y=100&format=jpg'
+```
+
+<br>
+
+#### Rotate filter
+
+Spring properties name: RotateImage
+
+**Default properties:**
+
+| Property           	| Required 	| Description                                                                                                                       	|
+|--------------------	|----------	|-----------------------------------------------------------------------------------------------------------------------------------	|
+| rotation           	| N        	| Default rotation value for rotation method; See http://javadox.com/org.imgscalr/imgscalr-lib/4.2/org/imgscalr/Scalr.Rotation.html 	|
+| responseHeaderName 	| Y        	| The header name of proxied server response                                                                                        	|
+| regexp             	| Y        	| Regex to verify response header value. If matched then current filter should be applied                                           	|
+| onNotExistedHeader 	| N        	| If true, current filter will be applied; otherwise not                                                                            	|
+| defaultFormat      	| N        	| default file format for image modification                                                                                        	|
+
+**Query parameters:**
+
+| Property 	| Description                                                                                                               	|
+|----------	|---------------------------------------------------------------------------------------------------------------------------	|
+| rotation 	| Rotation value for rotation method; See http://javadox.com/org.imgscalr/imgscalr-lib/4.2/org/imgscalr/Scalr.Rotation.html 	|
+| format   	| File format for image modification                                                                                        	|
+
+Curl example:
+```
+curl --location --request GET 'http://github.githubassets.com/images/modules/open_graph/github-octocat.png?rotation=CW_180'
+```
+
+### How to build
+
+```
+mvn clean install
+```
+
+### How to run
+
+Run proxy server with classpath config file
+```
+java -jar ./proxy-image-server/target/proxy-image-server-0.0.1-SNAPSHOT.jar
+```
+
 #### TODO
 
 1. Enabled HTTPS proxy requests for image-server
