@@ -14,13 +14,13 @@ import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes =  [ImageModificationAutoConfiguration::class, TestGatewayConfiguration::class])
+@ContextConfiguration(classes =  [ProxyImageModificationAutoConfiguration::class, TestGatewayConfiguration::class])
 @TestPropertySource(
         properties = [
             "proxy.image.enabled = true"
         ]
 )
-internal class ImageModificationAutoConfigurationEnabledTest {
+internal class ProxyImageModificationAutoConfigurationEnabledTest {
 
     @Autowired
     lateinit var applicationContext: ApplicationContext
@@ -32,13 +32,13 @@ internal class ImageModificationAutoConfigurationEnabledTest {
 }
 
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes =  [ImageModificationAutoConfiguration::class, TestGatewayConfiguration::class])
+@ContextConfiguration(classes =  [ProxyImageModificationAutoConfiguration::class, TestGatewayConfiguration::class])
 @TestPropertySource(
         properties = [
             "proxy.image.enabled = false"
         ]
 )
-internal class ImageModificationAutoConfigurationDisabledTest {
+internal class ProxyImageModificationAutoConfigurationDisabledTest {
 
     @Autowired
     lateinit var applicationContext: ApplicationContext

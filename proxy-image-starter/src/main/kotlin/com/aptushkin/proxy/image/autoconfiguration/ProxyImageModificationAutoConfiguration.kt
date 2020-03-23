@@ -8,4 +8,4 @@ import org.springframework.context.annotation.Import
 @Configuration
 @Import(ImageModificationConfiguration::class)
 @ConditionalOnProperty(prefix = "proxy.image", name = ["enabled"], havingValue = "true", matchIfMissing = true)
-class ImageModificationAutoConfiguration
+class ProxyImageModificationAutoConfiguration
