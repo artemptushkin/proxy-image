@@ -11,6 +11,13 @@
 
     <artifactId>proxy-image-starter</artifactId>
 
+    <scm>
+        <url>https://github.com/artemptushkin/proxy-image</url>
+        <connection>scm:git:ssh://git@github.com/artemptushkin/proxy-image.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/artemptushkin/proxy-image.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <dependencies>
         <!-- SELF -->
         <dependency>
