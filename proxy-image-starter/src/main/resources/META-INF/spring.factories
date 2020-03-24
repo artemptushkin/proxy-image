@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.aptushkin.proxy.image.autoconfiguration.ProxyImageModificationAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.aptushkin.proxy.image.autoconfiguration.ProxyImageModificationAutoConfiguration

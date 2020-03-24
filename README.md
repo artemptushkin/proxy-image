@@ -4,14 +4,14 @@ Fetch dependency:
 <br>Maven:
 ```xml
 <dependency>
-    <groupId>com.aptushkin.proxy.image</groupId>
+    <groupId>io.github.aptushkin.proxy.image</groupId>
     <artifactId>proxy-image-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile group: 'com.aptushkin.proxy.image', name: 'proxy-image-starter', version: '0.0.1-SNAPSHOT'
+compile group: 'io.github.aptushkin.proxy.image', name: 'proxy-image-starter', version: '0.0.1-SNAPSHOT'
 ```
 
 Use spring properties to activate customize image modifications: 

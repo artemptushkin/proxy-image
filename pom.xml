@@ -16,7 +16,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.aptushkin.proxy.image</groupId>
+	<groupId>io.github.aptushkin.proxy.image</groupId>
 	<artifactId>proxy-image-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
