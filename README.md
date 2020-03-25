@@ -163,13 +163,13 @@ java -jar ./proxy-image-server/target/proxy-image-server-0.0.1-SNAPSHOT.jar
 ### How to snapshot deploy to sonartype nexus
 
 ```
-mvn release:prepare deploy
+mvn clean release:prepare deploy
 ```
 
 ### How to release deploy to sonartype nexus
 
 ```
-mvn release:prepare release:perform -Prelease
+mvn clean release:prepare release:perform -Prelease
 ```
 
 #### TODO

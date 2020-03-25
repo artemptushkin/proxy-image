@@ -10,6 +10,9 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
 
+/**
+ * @Configuration for all the available image filters
+ */
 @Configuration
 @ComponentScan
 class ImageModificationConfiguration {
