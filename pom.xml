@@ -50,6 +50,21 @@
 					<localCheckout>true</localCheckout>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.jetbrains.dokka</groupId>
+				<artifactId>dokka-maven-plugin</artifactId>
+				<version>0.10.0</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>dokka</goal>
+							<goal>javadoc</goal>
+							<goal>javadocJar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -95,6 +110,17 @@
 			</build>
 		</profile>
 	</profiles>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jcenter</id>
+			<name>JCenter</name>
+			<url>https://jcenter.bintray.com/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<distributionManagement>
 		<snapshotRepository>
