@@ -3,7 +3,7 @@
     <parent>
         <artifactId>proxy-image-parent</artifactId>
         <groupId>io.github.artemptushkin.proxy.image</groupId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,7 +17,7 @@
         <url>https://github.com/artemptushkin/proxy-image</url>
         <connection>scm:git:ssh://git@github.com/artemptushkin/proxy-image.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/artemptushkin/proxy-image.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>proxy-image-parent-1.0.3</tag>
     </scm>
 
     <dependencyManagement>
