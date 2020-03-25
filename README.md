@@ -145,6 +145,8 @@ Curl example:
 curl --location --request GET 'http://github.githubassets.com/images/modules/open_graph/github-octocat.png?rotation=CW_180'
 ```
 
+# Development
+
 ### How to build
 
 ```
@@ -156,6 +158,18 @@ mvn clean install
 Run proxy server with classpath config file
 ```
 java -jar ./proxy-image-server/target/proxy-image-server-0.0.1-SNAPSHOT.jar
+```
+
+### How to snapshot deploy to sonartype nexus
+
+```
+mvn release:prepare deploy
+```
+
+### How to release deploy to sonartype nexus
+
+```
+mvn release:prepare release:perform -Prelease
 ```
 
 #### TODO
