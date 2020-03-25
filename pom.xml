@@ -15,7 +15,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>io.github.aptushkin.proxy.image</groupId>
+	<groupId>io.github.artemptushkin.proxy.image</groupId>
 	<artifactId>proxy-image-parent</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -43,6 +43,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
+					<arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
 					<branchName>master</branchName>
 					<pushChanges>false</pushChanges>
 					<localCheckout>true</localCheckout>
@@ -98,5 +99,17 @@
 			</build>
 		</profile>
 	</profiles>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonartype</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonartype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
+			</url>
+		</repository>
+	</distributionManagement>
 
 </project>
