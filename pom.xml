@@ -17,7 +17,7 @@
 
 	<groupId>io.github.artemptushkin.proxy.image</groupId>
 	<artifactId>proxy-image-parent</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	<packaging>pom</packaging>
 	<name>proxy-image-parent</name>
 	<description>Demo project for Spring Boot</description>
@@ -33,7 +33,7 @@
 		<url>https://github.com/artemptushkin/proxy-image</url>
 		<connection>scm:git:ssh://git@github.com/artemptushkin/proxy-image.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/artemptushkin/proxy-image.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>proxy-image-parent-1.0.2</tag>
 	</scm>
 
 	<build>
