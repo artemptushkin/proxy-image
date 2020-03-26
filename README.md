@@ -1,12 +1,28 @@
+### Description
+
+Image proxy server based on spring cloud gateway filters provides opportunity to change images on fly.
+<br>There are two ways to customize response image:
+* By passing additional query parameter at the request, see tables below
+* By setting up default filters parameters at the spring application properties
+
+It is available to use several filters for a specific url and enable an image filter by customizing settings of proxied server
+response (see `io.github.aptushkin.proxy.image.modify.predicate.ImageModifierPredicate` and `responseHeaderName` property). 
+
+<br>Usage:
+1. As standalone http (https in todo list) proxy server to modify image responses from proxied servers
+2. As dependency, it is possible to fetch `proxy-image-starter` to get image modifications filters for your custom spring cloud gateway server
+3. [TODO] As part of spring cloud microservices infrastructure
+4. [TODO] As part of your Spring REST API server by fetching a starter
+
 ### How to use inside your spring-cloud-gateway server
 
-Fetch dependency:
+Fetch dependency from `https://repo1.maven.org/maven2`:
 <br>Maven:
 ```xml
 <dependency>
-    <groupId>io.github.aptushkin.proxy.image</groupId>
+    <groupId>io.github.artemptushkin.proxy.image</groupId>
     <artifactId>proxy-image-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 Gradle:
@@ -51,7 +67,7 @@ proxy.image:
    
 ### Available image filters
 
-#### Resize filter
+## Resize filter
 
 Spring properties name: ResizeImage
 
@@ -85,7 +101,7 @@ curl --location --request GET 'http://github.githubassets.com/images/modules/ope
 
 <br>
 
-#### Crop filter
+## Crop filter
 
 Spring properties name: CropImage
 
@@ -119,7 +135,7 @@ curl --location --request GET 'http://github.githubassets.com/images/modules/ope
 
 <br>
 
-#### Rotate filter
+### Rotate filter
 
 Spring properties name: RotateImage
 
@@ -176,3 +192,4 @@ mvn clean release:prepare release:perform -Prelease
 
 1. Enabled HTTPS proxy requests for image-server
 2. Make starter for common web applications to use it with internal response filters for a specific url
+3. To add dependencies of spring cloud infrastructure: eureka-client, config-client
