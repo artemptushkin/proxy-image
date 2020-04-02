@@ -5,7 +5,7 @@ import org.springframework.validation.annotation.Validated
 import javax.validation.constraints.NotEmpty
 
 @Validated
-class DefaultImageConfig: ModifyResponseBodyGatewayFilterFactory.Config() {
+abstract class DefaultImageConfig: ModifyResponseBodyGatewayFilterFactory.Config() {
     @NotEmpty
     lateinit var responseHeaderName: String
     @NotEmpty
@@ -13,4 +13,6 @@ class DefaultImageConfig: ModifyResponseBodyGatewayFilterFactory.Config() {
     var onNotExistedHeader = false
 
     var defaultFormat: String? = null
+
+    abstract fun isDefaultsAvailable(): Boolean
 }

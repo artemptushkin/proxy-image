@@ -1,7 +1,3 @@
-logging:
-  level:
-    org: debug
-
 server:
   port: 8080
 
@@ -16,15 +12,9 @@ spring:
           predicates:
             - Path=/**
           filters:
-            #- name: ResizeImage
-            #  args:
-            #    responseHeaderName: Content-Type
-            #    regexp: image/.*
-            #- name: CropImage
-            #  args:
-            #    responseHeaderName: Content-Type
-            #    regexp: image/.*
-            - name: RotateImage
+            - name: CropImage
               args:
                 responseHeaderName: Content-Type
                 regexp: image/.*
+                defaultWidth: 600
+                defaultHeight: 400

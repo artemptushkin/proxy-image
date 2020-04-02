@@ -10,4 +10,6 @@ class ResizeImageConfig: DefaultImageConfig() {
 
     var defaultMode: Scalr.Mode? = null
     var defaultMethod: Scalr.Method? = null
+
+    override fun isDefaultsAvailable(): Boolean = defaultHeight != null || defaultWidth != null || defaultMode != null || defaultMethod != null
 }

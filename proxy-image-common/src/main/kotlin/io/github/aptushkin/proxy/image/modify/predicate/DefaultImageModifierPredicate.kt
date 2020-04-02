@@ -8,7 +8,7 @@ class DefaultImageModifierPredicate(private val config: DefaultImageConfig): Ima
         val values = (exchange.response.headers).getOrDefault(config.responseHeaderName, emptyList<String>())
         if (values.isEmpty()) return config.onNotExistedHeader
         val params = exchange.request.queryParams
-        return params.isNotEmpty() && values
+        return (params.isNotEmpty() || config.isDefaultsAvailable()) && values
                 .stream()
                 .anyMatch { value -> value.matches(config.regexp.toRegex()) }
     }

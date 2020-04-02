@@ -9,4 +9,6 @@ class CropImageConfig: DefaultImageConfig() {
 
     var defaultX: Int? = null
     var defaultY: Int? = null
+
+    override fun isDefaultsAvailable(): Boolean = defaultHeight != null || defaultWidth != null || defaultX != null || defaultY != null
 }

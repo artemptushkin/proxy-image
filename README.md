@@ -1,6 +1,6 @@
 ### Description
 
-Image proxy server based on spring cloud gateway filters provides opportunity to change images on fly.
+Image proxy server based on spring cloud gateway filters provides opportunity to modify images on fly.
 <br>There are two ways to customize response image:
 * By passing additional query parameter at the request, see tables below
 * By setting up default filters parameters at the spring application properties
@@ -11,8 +11,8 @@ response (see `io.github.aptushkin.proxy.image.modify.predicate.ImageModifierPre
 <br>Usage:
 1. As standalone http (https in todo list) proxy server to modify image responses from proxied servers
 2. As dependency, it is possible to fetch `proxy-image-starter` to get image modifications filters for your custom spring cloud gateway server
-3. [TODO] As part of spring cloud microservices infrastructure
-4. [TODO] As part of your Spring REST API server by fetching a starter
+3. TODO: As part of spring cloud microservices infrastructure (eureka, config server)
+4. TODO: As part of your Spring REST API server by fetching a starter
 
 ### How to use inside your spring-cloud-gateway server
 
@@ -30,7 +30,7 @@ Gradle:
 compile group: 'io.github.aptushkin.proxy.image', name: 'proxy-image-starter', version: '0.0.1-SNAPSHOT'
 ```
 
-Use spring properties to activate customize image modifications: 
+Use spring properties to activate custom image filters: 
 ```yaml
 proxy.image:
     enalbed: true
